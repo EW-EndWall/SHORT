@@ -1,0 +1,15 @@
+RewriteEngine On
+
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# **** HTTPS ****
+#RewriteCond %{HTTPS} !=off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+
+# **** short link ****
+RewriteRule ^f/([a-zA-Z0-9]+)$ /forwarding.php?url=$1 [L]
+
+
+ErrorDocument 404 http://%{HTTP_HOST}/
