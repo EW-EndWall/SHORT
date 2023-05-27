@@ -13,7 +13,6 @@
   </p>
 </p>
 
-  ![Downloads](https://img.shields.io/github/downloads/EW-EndWall/SHORT/total) ![License](https://img.shields.io/github/license/EW-EndWall/SHORT) 
 
 ## Table Of Contents
 
