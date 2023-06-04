@@ -305,30 +305,32 @@
       function shortUrl() {
         const getUrl = document.getElementById("getUrl").value;
 
-        // * XMLHTTP create request
-        let xhr = new XMLHttpRequest();
+        if (getUrl) {
+          // * XMLHTTP create request
+          let xhr = new XMLHttpRequest();
 
-        // * request settings
-        xhr.open("POST", "./api.php", true);
-        xhr.setRequestHeader("Content-Type", "application/json");
+          // * request settings
+          xhr.open("POST", "./api.php", true);
+          xhr.setRequestHeader("Content-Type", "application/json");
 
-        // * request finished
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            // * done
-            const response = JSON.parse(xhr.responseText);
-            document.getElementById("shortUrl").value = response;
-          } else if (xhr.readyState === 4 && xhr.status !== 200) {
-            //* err
-            document.getElementById("shortUrl").value = "Error: " + xhr.status;
-          }
-        };
+          // * request finished
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              // * done
+              const response = JSON.parse(xhr.responseText);
+              document.getElementById("shortUrl").value = response;
+            } else if (xhr.readyState === 4 && xhr.status !== 200) {
+              //* err
+              document.getElementById("shortUrl").value = "Error: " + xhr.status;
+            }
+          };
 
-        // * request send
-        const data = {
-          url: getUrl,
-        };
-        xhr.send(JSON.stringify(data));
+          // * request send
+          const data = {
+            url: getUrl,
+          };
+          xhr.send(JSON.stringify(data));
+        }
       }
     </script>
   </body>
